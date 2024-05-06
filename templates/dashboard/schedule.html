@@ -1,0 +1,64 @@
+{% extends 'dashboard/base.html' %} {% load static %}
+{% load crispy_forms_tags%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Розклад занять для Олег Козак</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F3F0E4;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #9747FF;
+            color: white;
+        }
+        tr:hover {background-color: #f5f5f5;}
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Розклад занять для Олег Козак</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>День тижня</th>
+                <th>Номер заняття</th>
+                <th>Предмет</th>
+                <th>Викладач</th>
+                <th>Коментар</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for schedule in schedules %}
+                <tr>
+                    <td>{{ schedule.day_of_week }}</td>
+                    <td>{{ schedule.class_num }}</td>
+                    <td>{{ schedule.teaching_assignments.subject.title }}</td>
+                    <td>{{ schedule.teaching_assignments.teacher.first_name }} {{ schedule.teaching_assignments.teacher.last_name }}</td>
+                    <td>{{ schedule.comment }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+{% endblock content %}

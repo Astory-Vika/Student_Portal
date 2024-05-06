@@ -1,0 +1,16 @@
+{% extends 'dashboard/base.html' %} {% load static %} {% block content %}
+
+<html>
+<head>
+    <title>Homework Questions</title>
+</head>
+<body>
+    <h1>Questions for {{ homework.title }}</h1>
+    <ol>
+        {% for question in questions %}
+        <li>{{ question }}</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
+{% endblock content %}

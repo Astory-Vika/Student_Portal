@@ -1,0 +1,182 @@
+{% extends 'dashboard/base.html' %} {% load static %} {% block content %}
+
+<head>
+  <!-- Підключення Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<section class="container text-center">
+
+  {% if user.is_authenticated %}
+  {% for el in todo %}
+    <div class="alert alert-warning mt-2">
+      <h3>{{ el.title }}</h3>
+      <p>{{ el.is_finished }}<p>
+    </div>
+  {% endfor%}
+  {% endif %}
+
+  <br>
+  <h1>Ласкаво просимо до нашого порталу!</h1>
+    {% if user.is_authenticated %}
+        <div>
+            <h2>Розклад:</h2>
+            <p><a href="{% url 'schedule' %}">Переглянути розклад</a></p>
+        </div>
+        {% if error %}
+            <div class="error">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+    {% else %}
+        <div>
+            <p>Будь ласка, <a href="{% url 'login' %}">увійдіть</a> для доступу до розкладу та інших функцій.</p>
+        </div>
+    {% endif %}
+    
+    <div class="container mt-4">
+      <div class="subjects-container">
+      {% if subjects_details %}
+          <div class="row">
+              {% for subject in subjects_details %}
+              <div class="col-md-4 mb-4">
+                  <div class="card">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ subject.subject_title }}</h5>
+                          <p class="card-text"><i class="fas fa-user-tie"></i> <!-- Іконка викладача --> 
+                            {{ subject.teacher_last_name }} {{ subject.teacher_middle_name }}</p>
+                            <a href="{% url 'subject_detail' subject.subject_id %}" class="btn btn-primary">Детальніше</a>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      {% else %}
+          <p>{{ error|default:"No subjects available" }}</p>
+      {% endif %} 
+  </div></div>
+
+
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="{% url 'notes' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Нотатки
+            </h5>
+            Створюйте нотатки для подальшого їх надсилання. Вони зберігаються назавжди до видалення.
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3">
+      <a href="{% url 'homework' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/homework.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Домашнє завдання
+            </h5>
+            Додайте домашні завдання та призначте терміни їх виконання. Вони відображатимуться в порядку пріоритету за термінами.
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{% url 'youtube' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/youtube.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Youtube
+            </h5>
+            Виконайте пошук на YouTube і виберіть потрібне відео, щоб відтворити його.
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{% url 'todo' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              To Do
+            </h5>
+            Додайте свої списки справ на день і видаліть їх, коли закінчите.
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="row">
+    <div class="col-md-3 ">
+      <a href="{% url 'books' %}">
+        <div class="card mt-20">
+          <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Книги
+            </h5>
+            Переглядайте книги із акуратно організованого меню книг.
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+
+    <div class="col-md-3">
+      <a href="{% url 'dictionary' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Словник
+            </h5>
+            Вас турбує словниковий запас із книги? Не проблема, введіть слово, і значення відобразиться майже миттєво.
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{% url 'wiki' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Вікіпедія
+            </h5>
+            Домашнє завдання та завдання? Шукайте у Вікіпедії, щоб отримати швидкі результати.
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-md-3">
+      <a href="{% url 'conversion' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/conversion.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Конертація
+            </h5>
+            Ознайомтеся з таблицею перетворення, яка допоможе вам конвертувати вимірювання у більш звичні значення на ваш вибір.
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+
+
+  <br><br>
+</section>
+{% endblock content %}
