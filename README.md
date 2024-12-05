@@ -29,6 +29,7 @@ A Django-based web-based solution designed to enhance the online education exper
 - Text similarity checks validate response relevance.
 - Includes tools such as note-taking, integrated dictionaries, unit converters, and resource searches (e.g., YouTube, Wikipedia).
 - Visualisation of student performance and progress through interactive dashboards.
+![Dashboard Screenshot](images/Picture2.png)
 
 **User Roles**:
    - **Students**: Access personalised learning paths, view schedules, complete assignments, and receive automated feedback.
