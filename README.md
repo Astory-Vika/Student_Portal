@@ -16,7 +16,7 @@ A web application designed to manage and simplify student-related activities and
 ## About the Project
 
 A Django-based web-based solution designed to enhance the online education experience using **machine learning** and **artificial intelligence**. This platform focuses on **personalised learning paths**, **adaptive material customisation**, and **automated assessment** of student responses. The platform is user-friendly and equipped with tools to improve efficiency in managing academic information and communication within educational institutions.
-![Dashboard Screenshot](images/dashboard.png)
+![Dashboard Screenshot](images/Picture1.png)
 
 ## Features
 
