@@ -7,11 +7,9 @@ A web application designed to manage and simplify student-related activities and
 - [About the Project](#about-the-project)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+- [Contributing](#contributing)
 
 ## About the Project
 
@@ -48,15 +46,50 @@ Feel free to contribute, report issues, or explore the codebase to understand ho
 
 ## Installation
 
-Follow these steps to set up the project locally:
-
-1. Clone the repository:
+**Clone the repository:**
    ```bash
-   git clone https://github.com/Astory-Vika/Student_Portal.git
+   git clone https://github.com/Astory-Vika/Student_Portal.git\
+```
 
 ## Setup
 
 **Install the required dependencies**:
    ```bash
    pip install -r requirements.txt
+```
 
+## Installation and Setup
+
+To set up and run the project locally, follow these steps:
+
+**Run database migrations**:
+   ```bash
+   python manage.py migrate
+   ```
+## Start the Development Server
+
+**Start the development server**:
+   ```bash
+   python manage.py runserver
+   ```
+## License
+
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute this project in accordance with the terms of the license.
+
+## Contact
+
+For any inquiries or feedback, feel free to reach out:
+
+- **Author**: Viktoriia Astafieva  
+- **GitHub**: [Astory-Vika](https://github.com/Astory-Vika)  
+- **Email**: [viktoriia@astafievaai.com](mailto:viktoriia@astafievaai.com)
+
+## Contributing
+
+Contributions are welcome! To contribute to this project, follow these steps:
+
+1. Fork the repository.
+2. Create a branch for your feature:
+   ```bash
+   git checkout -b feature-name
