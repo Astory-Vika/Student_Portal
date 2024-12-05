@@ -53,3 +53,10 @@ Follow these steps to set up the project locally:
 1. Clone the repository:
    ```bash
    git clone https://github.com/Astory-Vika/Student_Portal.git
+
+## Setup
+
+**Install the required dependencies**:
+   ```bash
+   pip install -r requirements.txt
+
